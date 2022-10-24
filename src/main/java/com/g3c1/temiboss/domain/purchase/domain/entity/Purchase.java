@@ -1,7 +1,7 @@
-package com.g3c1.temiboss.domain.purchase.entity;
+package com.g3c1.temiboss.domain.purchase.domain.entity;
 
 import com.g3c1.temiboss.domain.food.entity.Food;
-import com.g3c1.temiboss.domain.seat.entity.Seat;
+import com.g3c1.temiboss.domain.seat.domain.entity.Seat;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,6 +1,6 @@
 package com.g3c1.temiboss.domain.food.entity;
 
-import com.g3c1.temiboss.domain.category.entity.Category;
+import com.g3c1.temiboss.domain.category.domain.entity.Category;
 import lombok.*;
 
 import javax.persistence.*;
