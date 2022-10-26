@@ -5,10 +5,7 @@ import lombok.*;
 import java.util.List;
 
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 public class CreateCategoryListRequest {
-    private List<String> categoryList;
-
-
+    private final List<String> categoryList;
 }

@@ -1,6 +1,6 @@
 package com.g3c1.temiboss.domain.purchase.domain.entity;
 
-import com.g3c1.temiboss.domain.food.entity.Food;
+import com.g3c1.temiboss.domain.food.domain.entity.Food;
 import com.g3c1.temiboss.domain.seat.domain.entity.Seat;
 import lombok.*;
 

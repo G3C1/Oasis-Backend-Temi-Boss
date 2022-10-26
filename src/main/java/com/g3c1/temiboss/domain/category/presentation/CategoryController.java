@@ -1,7 +1,7 @@
 package com.g3c1.temiboss.domain.category.presentation;
 
 import com.g3c1.temiboss.domain.category.presentation.dto.request.CreateCategoryListRequest;
-import com.g3c1.temiboss.domain.category.service.AddCategoryService;
+import com.g3c1.temiboss.domain.category.service.CategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("category")
 public class CategoryController {
-    private final AddCategoryService addCategoryService;
+    private final CategoryService categoryService;
 
     @PostMapping
-    public ResponseEntity<Void> PostCategory(@RequestBody CreateCategoryListRequest createCategoryRequest){
-        addCategoryService.execute(createCategoryRequest);
+    public ResponseEntity<Void> categoryAdd(@RequestBody() CreateCategoryListRequest createCategoryRequest){
+        categoryService.addCategory(createCategoryRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 }
