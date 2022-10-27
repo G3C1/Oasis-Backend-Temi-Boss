@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface FoodService {
     void addFood(List<AddFoodRequest.FoodInfo> foodInfoList);
+    void getFoodList();
 
 }

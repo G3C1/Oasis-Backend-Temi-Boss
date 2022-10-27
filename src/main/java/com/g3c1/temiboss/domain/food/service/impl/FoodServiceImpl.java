@@ -32,4 +32,9 @@ public class FoodServiceImpl implements FoodService {
                 .build())
                 .collect(Collectors.toList()));
     }
+
+    @Override
+    public void getFoodList() {
+
+    }
 }
