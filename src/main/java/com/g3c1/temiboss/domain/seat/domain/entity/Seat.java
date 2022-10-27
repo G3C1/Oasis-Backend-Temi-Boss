@@ -18,4 +18,8 @@ public class Seat {
     @Column(name = "several_people")
     private int severalPeople;
     private Boolean enabled;
+
+    public void updateSeated(Boolean enable) {
+        enabled = enable;
+    }
 }
