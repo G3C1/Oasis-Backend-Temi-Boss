@@ -6,6 +6,8 @@ import com.g3c1.temiboss.domain.category.exception.CategoryNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class CategoryUtils {
@@ -13,5 +15,8 @@ public class CategoryUtils {
 
     public Category findCategoryById(Long categoryId){
         return categoryRepository.findCategoryById(categoryId).orElseThrow(()->new CategoryNotFoundException("카테고리를 찾을 수 없습니다."));
+    }
+    public List<Category> findAllCategory(){
+        return categoryRepository.findAll();
     }
 }

@@ -5,6 +5,7 @@ import com.g3c1.temiboss.domain.category.utils.CategoryUtils;
 import com.g3c1.temiboss.domain.food.domain.entity.Food;
 import com.g3c1.temiboss.domain.food.domain.repository.FoodRepository;
 import com.g3c1.temiboss.domain.food.presentation.dto.request.AddFoodRequest;
+import com.g3c1.temiboss.domain.food.presentation.dto.response.CategoryFoodResponse;
 import com.g3c1.temiboss.domain.food.service.FoodService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -34,7 +35,31 @@ public class FoodServiceImpl implements FoodService {
     }
 
     @Override
-    public void getFoodList() {
-
+    public List<CategoryFoodResponse> getFoodList() {
+        List<Category> categories = getCategoryList();
+        return getCategoryFoodList(categories);
+    }
+    private List<Category> getCategoryList(){
+        return categoryUtils.findAllCategory();
+    }
+    private List<CategoryFoodResponse> getCategoryFoodList(List<Category> categories){
+        return categories.stream().map(category -> {
+            List<CategoryFoodResponse.FoodInfo> foodInfoResponses = getFoodInfoListByCategory(category);
+            return CategoryFoodResponse.builder()
+                    .id(category.getId())
+                    .category(category.getName())
+                    .foodList(foodInfoResponses)
+                    .build();
+        }).collect(Collectors.toList());
+    }
+    private List<CategoryFoodResponse.FoodInfo> getFoodInfoListByCategory(Category category){
+        return foodRepository.findFoodByCategory(category).stream().map(food -> CategoryFoodResponse.FoodInfo.builder()
+                .id(food.getId())
+                .name(food.getName())
+                .img(food.getImg())
+                .price(food.getPrice())
+                .servings(food.getServings())
+                .description(food.getDescription())
+                .build()).collect(Collectors.toList());
     }
 }
