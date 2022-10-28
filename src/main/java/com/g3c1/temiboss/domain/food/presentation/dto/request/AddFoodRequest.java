@@ -1,9 +1,6 @@
 package com.g3c1.temiboss.domain.food.presentation.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -12,7 +9,7 @@ import java.util.List;
 public class AddFoodRequest {
     List<FoodInfo> foodInfoList;
 
-    @Getter @Setter
+    @Getter @Builder
     @AllArgsConstructor
     public static class FoodInfo {
         private final String foodName;
