@@ -36,11 +36,8 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public List<CategoryFoodResponse> getFoodList() {
-        List<Category> categories = getCategoryList();
+        List<Category> categories = categoryUtils.findAllCategory();
         return getCategoryFoodList(categories);
-    }
-    private List<Category> getCategoryList(){
-        return categoryUtils.findAllCategory();
     }
     private List<CategoryFoodResponse> getCategoryFoodList(List<Category> categories){
         return categories.stream().map(category -> {
